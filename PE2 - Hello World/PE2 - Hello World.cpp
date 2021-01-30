@@ -16,8 +16,8 @@ int main()
     area = 3.1415 * (pow(6.2, 2));
 
     // How integer division works
-    double division;
-    division = 11 / 3;
+    int division;
+    division = 11 / 3; // Should equal 3.66666
 
     // Output
     std::cout << "There are " << seconds << " seconds in December" << std::endl;
