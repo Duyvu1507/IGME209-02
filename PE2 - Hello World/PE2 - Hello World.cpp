@@ -1,5 +1,4 @@
-// helloworld.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+//PE2 - Hello World
 
 #include <iostream>
 #include <iomanip>
@@ -20,9 +19,8 @@ int main()
     double division;
     division = 11 / 3;
 
+    // Output
     std::cout << "There are " << seconds << " seconds in December" << std::endl;
     std::cout << "The area of a circle with a radius 6.2 is " << std::setprecision(4) << area << std::endl;
     std::cout << "With integer division, the number is always rounded down ie: 11 / 3 gives us " << division << std::endl;
 }
-
-
