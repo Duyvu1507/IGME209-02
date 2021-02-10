@@ -13,8 +13,7 @@ char totalGuesses[100]; // Array to hold total guesses
 int totalCount = 0; // Used to add to total guesses 
 
 char wordToGuess[100] = "scientist"; // Word to be guessed
-
-char correctLetters[100] = "_________"; // Correctly guessed letters
+char correctLetters[100] = "#########"; // Correctly guessed letters
 
 char incorrectLetters[100]; // Incorrectly guessed letters
 int incorrectCount = 0; // Used to add to incorrect letters
@@ -31,6 +30,7 @@ int main()
         }
         
         // Display text to welcome the user
+        std::cout << lettersLeftToGuessCount <<" letters left to guess" << std::endl;
         std::cout << "Let's play Hangman!" << std::endl;
         std::cout << "Your word has " << strlen(wordToGuess) << " letters in it." << std::endl;
         std::cout << "" << std::endl;
@@ -57,7 +57,9 @@ int main()
             totalGuesses[totalCount] = guess;
             totalCount++;
             std::cout << "Nice guess!" << std::endl;
+            
             std::cout << "" << std::endl;
+
         }
 
         // If a letter has already been guessed
