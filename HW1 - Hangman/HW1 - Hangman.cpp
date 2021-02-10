@@ -19,16 +19,18 @@ char correctLetters[100] = "_________"; // Correctly guessed letters
 char incorrectLetters[100]; // Incorrectly guessed letters
 int incorrectCount = 0; // Used to add to incorrect letters
 
+// Main
 int main()
 {
     while (guesses >= 0) {
-        // If the user runs out of guesses
+        // If the user runs out of guesses, game over
         if (guesses == 0) {
             std::cout << "Game Over" << std::endl;
             showGallows(0);
             break;
         }
         
+        // Display text to welcome the user
         std::cout << "Let's play Hangman!" << std::endl;
         std::cout << "Your word has " << strlen(wordToGuess) << " letters in it." << std::endl;
         std::cout << "" << std::endl;
@@ -75,6 +77,7 @@ int main()
             guesses--;
         }
 
+        // Update correct letters
         updateLetters(wordToGuess, totalGuesses);
     }
 }
@@ -178,6 +181,7 @@ void showSolved(char word[], char guesses[]) {
     std::cout << "\n";
 }
 
+// Function to update correct letters
 void updateLetters(char word[], char guesses[]) {
     for (int i = 0; i < strlen(guesses); i++) {
         for (int x = 0; x < strlen(word); x++) {
