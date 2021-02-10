@@ -30,7 +30,6 @@ int main()
         }
         
         // Display text to welcome the user
-        std::cout << lettersLeftToGuessCount <<" letters left to guess" << std::endl;
         std::cout << "Let's play Hangman!" << std::endl;
         std::cout << "Your word has " << strlen(wordToGuess) << " letters in it." << std::endl;
         std::cout << "" << std::endl;
