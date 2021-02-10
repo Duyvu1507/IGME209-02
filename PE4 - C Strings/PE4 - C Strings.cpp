@@ -6,7 +6,7 @@
 int main()
 {
     // Define first C string and print the length
-    char word[100] = "supercalifraglistic";
+    char word[100] = "supercalifraglistic"; 
     std::cout << strlen(word) << std::endl;
 
     // Define second C string and append it to first and prints the result
