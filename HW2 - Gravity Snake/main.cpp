@@ -3,7 +3,6 @@
 #include <iostream>
 #include <Box2D.h>
 #include "snake.h"
-#include "snake.cpp"
 #include <conio.h>
 
 using namespace std;
@@ -14,7 +13,7 @@ int main()
 	char input; // User input var
 	int collidedCount = 0;
 	int maxCollisions = 10;
-
+	
 	// --- TARGET --- //
 	//Define static body
 	targetDef.type = b2_staticBody;
@@ -70,11 +69,13 @@ int main()
 		b2Vec2 snakePos = snakeBody->GetPosition();
 		b2Vec2 targetPos = targetBody->GetPosition();
 		
+		// Collission detection
 		if ((snakePos.x - targetPos.x <= 2 && snakePos.x - targetPos.x >= -2) && (snakePos.y - targetPos.y <= 2 && snakePos.y - targetPos.y >= -2)) {
 			moveTarget(targetPos.x, targetPos.y);
 			collidedCount++;
 		}
 
+		// If 10 collissions, you win!
 		if (collidedCount == maxCollisions) {
 			play = false;
 			cout << "You Win!" << endl;

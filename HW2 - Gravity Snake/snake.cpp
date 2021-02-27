@@ -3,7 +3,6 @@
 #include "snake.h"
 #include <conio.h>
 
-
 using namespace std;
 
 // Vars to update time
@@ -12,8 +11,9 @@ int32 velocityIterations = 6;
 int32 positionIterations = 2;
 
 // Create world
-b2Vec2 gravity(0.0f, -10.0f);
+b2Vec2 gravity(0.0f, -9.81f);
 b2World world(gravity);
+
 b2BodyDef bodyDef;
 b2BodyDef targetDef;
 
@@ -39,19 +39,19 @@ void applyForces() {
 	float yToMove;
 
 	if (input == 'w') {
-		yToMove = 25;
+		yToMove = 20;
 	}
 
 	else if (input == 'a') {
-		xToMove = -25;
+		xToMove = -20;
 	}
 
 	else if (input == 's') {
-		yToMove = -25;
+		yToMove = -20;
 	}
 
 	else if (input == 'd') {
-		xToMove = 25;
+		xToMove = 20;
 	}
 
 	snakeBody->ApplyForceToCenter(b2Vec2(xToMove, yToMove), true);
