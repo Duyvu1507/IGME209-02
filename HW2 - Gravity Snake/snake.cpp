@@ -58,10 +58,5 @@ void applyForces() {
 }
 
 void moveTarget(float& xPos, float& yPos) {
-	srand((int)time(0));
 	
-	float newTargetPosX = (rand() % 10) - 5.0f;
-	float newTargetPosY = (rand() % 10) - 5.0f;
-
-	targetBody->SetTransform(b2Vec2(newTargetPosX, newTargetPosY), targetBody->GetAngle());
 }
