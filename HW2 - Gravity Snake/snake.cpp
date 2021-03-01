@@ -21,10 +21,12 @@ b2BodyDef targetDef;
 b2Body* snakeBody;
 b2Body* targetBody;
 
+// Updates the world
 void update() {
 	world.Step(timeStep, velocityIterations, positionIterations);
 }
 
+// Displays the position of the target and snake body
 void display() {
 	b2Vec2 snakePos = snakeBody->GetPosition();
 	b2Vec2 targetPos = targetBody->GetPosition();
@@ -32,6 +34,7 @@ void display() {
 	cout << "Target " << targetPos.x << ", " << targetPos.y << " --> Snake " << snakePos.x << ", " << snakePos.y << endl;
 }
 
+// Apply force to snake based on user input
 void applyForces() {
 	char input = _getch();
 
@@ -57,6 +60,7 @@ void applyForces() {
 	snakeBody->ApplyForceToCenter(b2Vec2(xToMove, yToMove), true);
 }
 
+// Moves target
 void moveTarget(float& xPos, float& yPos) {
 	if (xPos > 4.9) {
 		xPos -= 0.5;

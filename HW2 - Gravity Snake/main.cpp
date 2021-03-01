@@ -52,6 +52,10 @@ int main()
 	// Add the shape to the body
 	targetBody->CreateFixture(&staticFixture);
 
+	b2Vec2 snakePos = snakeBody->GetPosition();
+	b2Vec2 targetPos = targetBody->GetPosition();
+	moveTarget(targetPos.x, targetPos.y);
+
 	cout << "Let's play Gravity Snake" << endl;
 	while (play == true) {
 		display();
@@ -59,6 +63,7 @@ int main()
 		// If key is pressed, call apply forces
 		if (_kbhit()) {
 			input = _getch();
+			cout << "print" << endl;
 			// If key pressed is esc, end game
 			if (int(input) == 27) {
 				play = false;
@@ -68,8 +73,8 @@ int main()
 			}
 		}
 		
-		b2Vec2 snakePos = snakeBody->GetPosition();
-		b2Vec2 targetPos = targetBody->GetPosition();
+		snakePos = snakeBody->GetPosition();
+		targetPos = targetBody->GetPosition();
 		
 		// Collission detection
 		if ((snakePos.x - targetPos.x <= 2 && snakePos.x - targetPos.x >= -2) && (snakePos.y - targetPos.y <= 2 && snakePos.y - targetPos.y >= -2)) {
@@ -83,10 +88,8 @@ int main()
 			cout << "You Win!" << endl;
 		}
 
-		update();
+		update();	
 	}
-
-	return 0;
 
 }
 
