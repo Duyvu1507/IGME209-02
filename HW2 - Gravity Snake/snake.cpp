@@ -11,7 +11,7 @@ int32 velocityIterations = 6;
 int32 positionIterations = 2;
 
 // Create world
-b2Vec2 gravity(0.0f, -9.81f);
+b2Vec2 gravity(0.0f, -9.8f);
 b2World world(gravity);
 
 b2BodyDef bodyDef;
@@ -35,8 +35,8 @@ void display() {
 void applyForces() {
 	char input = _getch();
 
-	float xToMove;
-	float yToMove;
+	float xToMove = 0;
+	float yToMove = 0;
 
 	if (input == 'w') {
 		yToMove = 20;
@@ -58,5 +58,18 @@ void applyForces() {
 }
 
 void moveTarget(float& xPos, float& yPos) {
+	if (xPos > 4.9) {
+		xPos -= 0.5;
+	}
+	else if (xPos < -5.0) {
+		xPos += 0.5;
+	}
+	else if (yPos > 4.9) {
+		yPos -= 0.5;
+	}
+	else if (yPos < -4.9) {
+		yPos += 0.5;
+	}
 	
+	targetBody->SetTransform(b2Vec2(xPos, yPos), targetBody->GetAngle());
 }

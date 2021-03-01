@@ -13,26 +13,7 @@ int main()
 	char input; // User input var
 	int collidedCount = 0;
 	int maxCollisions = 10;
-	
-	// --- TARGET --- //
-	//Define static body
-	targetDef.type = b2_staticBody;
-	targetDef.position.Set(1.0f, 4.0f);
-	targetBody = world.CreateBody(&targetDef);
 
-	// Define another box shape for static body
-	b2PolygonShape staticBox;
-	staticBox.SetAsBox(1.0f, 1.0f);
-
-	// Fixture definition
-	b2FixtureDef staticFixture;
-	staticFixture.shape = &staticBox;
-	staticFixture.density = 1.0f;
-	staticFixture.friction = .3f;
-
-	// Add the shape to the body
-	targetBody->CreateFixture(&staticFixture);
-	
 	// --- SNAKE -- //
 	// Define dynamic body
 	bodyDef.type = b2_dynamicBody;
@@ -52,6 +33,25 @@ int main()
 	// Add the shape to the body
 	snakeBody->CreateFixture(&fixtureDef);
 
+	// --- TARGET --- //
+	//Define static body
+	targetDef.type = b2_staticBody;
+	targetDef.position.Set(1.0f, 4.0f);
+	targetBody = world.CreateBody(&targetDef);
+
+	// Define another box shape for static body
+	b2PolygonShape staticBox;
+	staticBox.SetAsBox(1.0f, 1.0f);
+
+	// Fixture definition
+	b2FixtureDef staticFixture;
+	staticFixture.shape = &staticBox;
+	staticFixture.density = 1.0f;
+	staticFixture.friction = .3f;
+
+	// Add the shape to the body
+	targetBody->CreateFixture(&staticFixture);
+
 	cout << "Let's play Gravity Snake" << endl;
 	while (play == true) {
 		display();
@@ -63,7 +63,9 @@ int main()
 			if (int(input) == 27) {
 				play = false;
 			}
-			applyForces();
+			else {
+				applyForces();
+			}
 		}
 		
 		b2Vec2 snakePos = snakeBody->GetPosition();
@@ -83,6 +85,8 @@ int main()
 
 		update();
 	}
+
+	return 0;
 
 }
 
