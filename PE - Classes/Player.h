@@ -6,7 +6,6 @@ public :
 	Player(char* name, int str, int dx, int hp);
 	Player(char name, int str, int dx, int hp);
 	void printPlayer();
-	void PrintPlayer();	
 
 private: 
 	char* playername;
