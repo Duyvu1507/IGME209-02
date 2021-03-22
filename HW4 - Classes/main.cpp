@@ -34,7 +34,7 @@ int main()
     // Part 2 - Inheritence
     Fighter f1; // Default Constructor
 
-    Fighter f2((char*)"Bob", 5, 5, 5, (char*)"Swordsmanship");
+    Fighter f2((char*)"Bill", 5, 5, 5, (char*)"Swordsmanship");
 
     cout << endl;
     f1.printFighter();
@@ -50,23 +50,24 @@ int main()
     int randomNum;
     int randomNum2;
     int deadEnemies = 0;
+    int creationCount = 0;
     Player* battlers[10];
+    const char* names[6] = { "Bob", "Bill", "Jack", "Greg", "Jill", "Nick"};
 
     // Creates 10 Player or Fighter Objs based on random number
     for (int i = 0; i < 10; i++) {
         randomNum = rand() % 2;
-        
         // If randomNum = 0, create player
         if (randomNum == 0) {
-            Player* p = new Player((char*)"Player" + (char)i, randomNum, randomNum, randomNum);
+            randomNum2 = rand() % 6;
+            Player* p = new Player((char*)names[randomNum2], randomNum, randomNum2, randomNum);
             battlers[i] = p;
-            delete p;
         }
         // Else if randomNum = 1, create fighter
         else if (randomNum == 1) {
-            Fighter* f = new Fighter((char*)"Fighter" + (char)i, randomNum, randomNum, randomNum, (char*)"Magic");
+            randomNum2 = rand() % 6;
+            Fighter* f = new Fighter((char*)names[randomNum2], randomNum, randomNum2, randomNum, (char*)"Magic");
             battlers[i] = f;
-            delete f;
         }
     }
 
@@ -74,19 +75,21 @@ int main()
     while (deadEnemies != 9) {
         randomNum = rand() % 10;
         randomNum2 = rand() % 10;
-        while (randomNum == randomNum2) {
+        while (randomNum == randomNum2 || battlers[randomNum] == nullptr || battlers[randomNum2] == nullptr) {
             randomNum = rand() % 11;
             randomNum2 = rand() % 11;
         }
         battlers[randomNum]->attack(battlers[randomNum2]);
         battlers[randomNum2] = nullptr;
         deadEnemies += 1;
-        delete battlers[randomNum2];
     }
 
     for (int i = 0; i < 10; i++) {
         if (battlers[i] != nullptr) {
             cout << "The winner is " << battlers[i] << endl;
+        }
+        else if (battlers[i] == nullptr) {
+            delete battlers[i];
         }
     }
 

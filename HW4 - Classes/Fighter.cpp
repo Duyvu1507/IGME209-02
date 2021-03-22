@@ -7,8 +7,11 @@ Fighter::Fighter() {
 	weaponSkill = (char*)"None";
 }
 
-Fighter::Fighter(char* pName, int str, int dx, int hp, char* weaponSk) {
-	Player(pName, str, dx, hp);
+Fighter::Fighter(char* fName, int str, int dx, int hp, char* weaponSk) : Player(fName, str, dx, hp) {
+	this->fighterName = (char*)fName;
+	this->strength = str;
+	this->dexterity = dx;
+	this->health = hp;
 	this->weaponSkill = (char*)weaponSk;
 }
 

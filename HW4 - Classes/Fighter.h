@@ -7,17 +7,17 @@ class Fighter : public Player
 {
 public:
 	Fighter();
-	Fighter(char* playerName, int strength, int dexterity, int health, char* weaponSkill);
+	Fighter(char* fighterName, int strength, int dexterity, int health, char* weaponSkill);
 	void printFighter();
 	~Fighter() {
 		cout << "Destroying Fighter Object" << endl;
 	}
 	void attack(Player* player) {
-		cout << playerName << " attack's " << getName() << " with a weapon!" << endl;
+		cout << fighterName << " attack's " << getName() << " with a weapon!" << endl;
 	}
 
 private:
-	char* playerName;
+	char* fighterName;
 	int strength;
 	int dexterity;
 	int health;
