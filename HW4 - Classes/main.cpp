@@ -52,7 +52,8 @@ int main()
     int deadEnemies = 0;
     int creationCount = 0;
     Player* battlers[10];
-    const char* names[6] = { "Bob", "Bill", "Jack", "Greg", "Jill", "Nick"};
+    const char* playerNames[6] = { "Bob", "Bill", "Jack", "Greg", "Jill", "Nick"};
+    const char* fighterNames[6] = { "John", "Alan", "Jackson", "Tyler", "Phill", "Steve" };
 
     // Creates 10 Player or Fighter Objs based on random number
     for (int i = 0; i < 10; i++) {
@@ -60,13 +61,13 @@ int main()
         // If randomNum = 0, create player
         if (randomNum == 0) {
             randomNum2 = rand() % 6;
-            Player* p = new Player((char*)names[randomNum2], randomNum, randomNum2, randomNum);
+            Player* p = new Player((char*)playerNames[randomNum2], randomNum, randomNum2, randomNum);
             battlers[i] = p;
         }
         // Else if randomNum = 1, create fighter
         else if (randomNum == 1) {
             randomNum2 = rand() % 6;
-            Fighter* f = new Fighter((char*)names[randomNum2], randomNum, randomNum2, randomNum, (char*)"Magic");
+            Fighter* f = new Fighter((char*)fighterNames[randomNum2], randomNum, randomNum2, randomNum, (char*)"Magic");
             battlers[i] = f;
         }
     }
@@ -76,8 +77,8 @@ int main()
         randomNum = rand() % 10;
         randomNum2 = rand() % 10;
         while (randomNum == randomNum2 || battlers[randomNum] == nullptr || battlers[randomNum2] == nullptr) {
-            randomNum = rand() % 11;
-            randomNum2 = rand() % 11;
+            randomNum = rand() % 10;
+            randomNum2 = rand() % 10;
         }
         battlers[randomNum]->attack(battlers[randomNum2]);
         battlers[randomNum2] = nullptr;
