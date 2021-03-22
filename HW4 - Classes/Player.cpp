@@ -20,7 +20,7 @@ void Player::printPlayer() {
 	cout << "Player Name: " << playername << endl;
 	cout << "Strength: " << strength << endl;
 	cout << "Dexterity: " << dexterity << endl;
-	cout << "Health: " << health << "\n" << endl;
+	cout << "Health: " << health << endl;
 }
 
 

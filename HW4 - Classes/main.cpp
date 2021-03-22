@@ -17,12 +17,16 @@ int main()
     Player* p4 = new Player((char*)"Bob", 6, 7, 8); // Heap Paramatarized Constructor
 
     p1.printPlayer();
+    cout << endl;
 
     p2.printPlayer();
+    cout << endl;
 
     (*p3).printPlayer();
+    cout << endl;
 
     (*p4).printPlayer();
+    cout << endl;
 
     delete p3;
     delete p4;
