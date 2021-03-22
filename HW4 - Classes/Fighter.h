@@ -13,7 +13,7 @@ public:
 		cout << "Destroying Fighter Object" << endl;
 	}
 	void attack(Player* player) {
-		cout << fighterName << " attack's " << getName() << " with a weapon!" << endl;
+		cout << fighterName << " attack's " << (char*)player->getName() << " with a weapon!" << endl;
 	}
 
 private:

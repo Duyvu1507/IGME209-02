@@ -17,36 +17,29 @@ int main()
     Player* p4 = new Player((char*)"Bob", 6, 7, 8); // Heap Paramatarized Constructor
 
     p1.printPlayer();
-    cout << endl;
 
     p2.printPlayer();
-    cout << endl;
 
     (*p3).printPlayer();
-    cout << endl;
 
     (*p4).printPlayer();
-    cout << endl;
 
     delete p3;
     delete p4;
+    cout << endl;
 
     // Part 2 - Inheritence
     Fighter f1; // Default Constructor
 
     Fighter f2((char*)"Bill", 5, 5, 5, (char*)"Swordsmanship");
 
-    cout << endl;
     f1.printFighter();
 
-    cout << endl;
     f2.printFighter();
-
-    cout << endl;
 
 
     // Part 3 - Virtual Methods and Destructors
-    cout << "TOURNAMENT OF DEATH" << endl;
+    cout << "-----TOURNAMENT OF DEATH-----\n" << endl;
     int randomNum;
     int randomNum2;
     int deadEnemies = 0;
@@ -85,13 +78,16 @@ int main()
         deadEnemies += 1;
     }
 
+    // Prints out the winner
     for (int i = 0; i < 10; i++) {
         if (battlers[i] != nullptr) {
-            cout << "The winner is " << battlers[i] << endl;
+            cout << "\nThe winner is " << (char*)battlers[i]->getName() << "\n" << endl;
         }
-        else if (battlers[i] == nullptr) {
-            delete battlers[i];
-        }
+    }
+
+    // Deletes all remaining objects
+    for (int i = 0; i < 10; i++) {
+        delete battlers[i];
     }
 
 }

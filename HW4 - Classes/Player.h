@@ -15,7 +15,7 @@ public:
 		return playername;
 	}
 	virtual void attack(Player* player) {
-		cout << getName()  << " attacks " << playername << "!" << endl;
+		cout << playername  << " attacks " << (char*)player->getName() << "!" << endl;
 	}
 	
 private:

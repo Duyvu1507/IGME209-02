@@ -17,5 +17,5 @@ Fighter::Fighter(char* fName, int str, int dx, int hp, char* weaponSk) : Player(
 
 void Fighter::printFighter() {
 	printPlayer();
-	cout << "Weapon Skill: " << weaponSkill << endl;
+	cout << "Weapon Skill: " << weaponSkill << "\n" << endl;
 }
